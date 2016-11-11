@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel for="id_persona" value="Id Persona: " />
+                <p:inputMask id="id_persona" value="#{personaController.persona.idPersona}" mask="999999"/>
+
+                <p:outputLabel for="nombre" value="Nombre:" />
+                <p:inputMask id="nombre" value="#{personaController.persona.nombre}" mask="a*"/>
+
+                
+                <p:commandButton value="Reset" type="reset" />
+                <p:commandButton value="Submit"  actionListener="#{personaController.save}"/>
+            </h:panelGrid>
+        </h:form>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>Personas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+     <h:form>
+          <p:layout fullPage="true">
+              <p:layoutUnit position="center">
+                </p:layoutUnit>
+         <p:menu style="color: #6b2727; min-width: 200px; min-height: 520px; float: left">
+            <p:submenu label="Personas">
+                <p:menuitem value="Inicio" url="index.xhtml"></p:menuitem>
+                <p:menuitem value="Mociones" url="/pages/mociones.xhtml"></p:menuitem>
+                        <p:menuitem value="Tipo de mociones" url="/pages/tipoMociones.xhtml"></p:menuitem>
+                        <p:menuitem value="Mociones por persona" url="/pages/mocionesPorPersona.xhtml"></p:menuitem>
+		</p:submenu>
+	 </p:menu>
+         
+              <p:dataTable var="personas" value="" style="align-self: center">
+        <p:column headerText="Id">
+            <h:outputText value="" />
+        </p:column>
+ 
+        <p:column headerText="Nombre">
+            <h:outputText value="" />
+        </p:column>
+ 
+        <p:column headerText="Correo">
+            <h:outputText value="" />
+        </p:column>
+ 
+        <p:column headerText="Telefono">
+            <h:outputText value="" />
+        </p:column>
+        
+        <p:column headerText="Estamento">
+            <h:outputText value="" />
+        </p:column>
+    
+        <p:column headerText="Centro de trabajo">
+            <h:outputText value="" />
+        </p:column>
+        </p:dataTable>
+              
+             <p:commandButton value="Nuevo" type="button" onclick="PF('dlg1').show();" /> <!--boton que lanza la ventana emergente-->
+             
+             <p:dialog header="Insertar persona" widgetVar="dlg1" minHeight="500"> <!-- Ventana emergente -->
+                 
+                 <h:panelGrid columns="1" cellpadding="5"> <!-- formulario para insercion -->
+                     
+                       <h:outputLabel for="idper" value="ID: " />
+                       <p:inputMask id="id_persona" value="#{TabPersonaController.TabPersonas.idPer}" mask="9-999-999"/>
+                       <!-- Cambiar el valor de value por el controlador y metodo correspondiete-->
+                       <p:outputLabel for="nombre" value="Nombre: " />
+                       <p:inputMask id="nombre" value="#{TabPersonaController.TabPersonas.nombrePer}" mask="a*"/>
+                       
+                       <p:outputLabel for="correo" value="Correo: " />
+                       <p:inputMask id="correo" value="#{TabPersonaController.TabPersonas.correoPer}" mask="a*"/>
+                       
+                       <p:outputLabel for="telefono" value="telefono: " />
+                       <p:inputMask id="telefono" value="#{TabPersonaController.TabPersonas.telefonoPer}" mask="a*"/>
+                   </h:panelGrid>
+                 
+                 <p:commandButton value="Crear" actionListener="#{TabPersonas.save()}"/>
+                 <p:commandButton value="Reset" type="reset" />
+    
+</p:dialog>
+        </p:layout>
+     </h:form>
+</html>
